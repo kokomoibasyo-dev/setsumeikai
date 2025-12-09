@@ -1,0 +1,641 @@
+<!DOCTYPE html>
+<html lang="ja">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>未来を創造する力を育む：学校ではじめるアントレプレナーシップ教育</title>
+
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;700&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            font-family: 'Noto Sans JP', sans-serif;
+            background-color: #fcfbf9;
+            color: #44403c;
+        }
+
+        .fade-in {
+            animation: fadeIn .5s ease-in-out;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(10px)
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0)
+            }
+        }
+
+        .step-active {
+            border-color: #d98e59 !important;
+            background-color: #fff7ed !important;
+        }
+    </style>
+</head>
+
+<body class="selection:bg-stone-200">
+
+    <!-- Navigation -->
+    <nav class="sticky top-0 z-50 bg-white/90 backdrop-blur-md border-b border-stone-200 shadow-sm">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16 items-center">
+                <div class="font-bold text-xl text-stone-700 tracking-tight">Future Skills</div>
+                <div class="hidden md:flex space-x-8 text-sm font-medium text-stone-500">
+                    <button onclick="scrollToSection('purpose')" class="hover:text-stone-900 transition-colors">目的・意義</button>
+                    <button onclick="scrollToSection('skills')" class="hover:text-stone-900 transition-colors">8つの力</button>
+                    <button onclick="scrollToSection('process')" class="hover:text-stone-900 transition-colors">実践プロセス</button>
+                    <button onclick="scrollToSection('impact')" class="hover:text-stone-900 transition-colors">成果</button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero -->
+    <header class="relative bg-[#f5f5f4] py-20 px-4 sm:px-6 lg:px-8 overflow-hidden">
+        <div class="max-w-4xl mx-auto text-center relative z-10">
+            <span class="inline-block py-1 px-3 rounded-full bg-stone-200 text-stone-600 text-xs font-bold tracking-wide uppercase mb-4">保護者・教育関係者の皆様へ</span>
+            <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-stone-800 leading-tight mb-6">
+                未来を創造する<br class="hidden sm:inline">力を育む教育
+            </h1>
+            <p class="text-lg md:text-xl text-stone-600 max-w-2xl mx-auto leading-relaxed mb-8">
+                変化の激しい時代に必要なのは、単なる知識ではなく<br>
+                自ら考え、行動し、新たな価値を生み出す「精神」です。
+            </p>
+            <button onclick="scrollToSection('purpose')" class="bg-[#578a6e] hover:bg-[#466f58] text-white font-bold py-3 px-8 rounded-full shadow-lg transition transform hover:-translate-y-1">
+                詳しく見る
+            </button>
+        </div>
+        <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-white rounded-full opacity-40 blur-3xl -z-0"></div>
+    </header>
+
+
+    <!-- SECTION 1: Purpose -->
+    <main class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 space-y-24 py-16">
+        <section id="purpose" class="scroll-mt-24">
+            <div class="max-w-3xl mx-auto text-center mb-12">
+                <h2 class="text-3xl font-bold text-stone-800 mb-4">なぜ今、アントレプレナーシップ教育なのか？</h2>
+                <p class="text-stone-600 leading-relaxed">
+                    この教育の目的は、単に「起業家」を育てることではありません。
+                    予測困難な社会を生き抜くための、本質的な<strong class="text-[#578a6e]">「生きる力」</strong>を育むことです。
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+                <div class="bg-white rounded-2xl shadow-sm border border-stone-100 p-8 h-96 relative flex items-center justify-center">
+                    <div class="relative w-64 h-64">
+                        <button onclick="updatePurpose('challenge')" id="btn-challenge"
+                            class="node-active absolute top-0 left-1/2 transform -translate-x-1/2 -translate-y-1/2 w-20 h-20 rounded-full bg-white border-2 border-stone-300 flex items-center justify-center font-bold text-sm shadow-md">
+                            挑戦
+                        </button>
+
+                        <button onclick="updatePurpose('collab')" id="btn-collab"
+                            class="absolute bottom-4 left-0 transform -translate-x-1/4 w-20 h-20 rounded-full bg-white border-2 border-stone-300 flex items-center justify-center font-bold text-sm shadow-md">
+                            協働
+                        </button>
+
+                        <button onclick="updatePurpose('grit')" id="btn-grit"
+                            class="absolute bottom-4 right-0 transform translate-x-1/4 w-20 h-20 rounded-full bg-white border-2 border-stone-300 flex items-center justify-center font-bold text-sm shadow-md">
+                            やり抜く力
+                        </button>
+
+                        <div class="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 text-stone-400 font-bold text-xs tracking-widest uppercase">
+                            生きる力
+                        </div>
+                    </div>
+                </div>
+
+                <div class="bg-[#f5f5f4] rounded-2xl p-8 h-96 flex flex-col justify-center">
+                    <h3 id="purpose-title" class="text-2xl font-bold text-[#578a6e] mb-4">挑戦 (Challenge)</h3>
+                    <p id="purpose-desc" class="text-stone-600 leading-relaxed fade-in">
+                        失敗を恐れずに、新しいことや困難な課題に対して自ら一歩を踏み出す力です。
+                    </p>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- SECTION 2: Skills (Button Version) -->
+        <section id="skills" class="scroll-mt-24">
+            <div class="mb-10 text-center">
+                <h2 class="text-3xl font-bold text-stone-800 mb-4">身につく8つの力・態度</h2>
+                <p class="text-stone-600 max-w-2xl mx-auto">
+                    子どもたちが将来どの分野に進んでも必要となる実践的な能力です。
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                <div class="lg:col-span-1 bg-white rounded-2xl shadow-sm border border-stone-100 p-6">
+                    <div class="grid grid-cols-1 gap-3">
+                        <button class="skill-btn py-3 px-4 rounded-lg border hover:bg-stone-100" data-index="0">
+                            批判的思考
+                        </button>
+                        <button class="skill-btn py-3 px-4 rounded-lg border hover:bg-stone-100" data-index="1">
+                            未来予測・計画
+                        </button>
+                        <button class="skill-btn py-3 px-4 rounded-lg border hover:bg-stone-100" data-index="2">
+                            多面的思考
+                        </button>
+                        <button class="skill-btn py-3 px-4 rounded-lg border hover:bg-stone-100" data-index="3">
+                            コミュニケーション
+                        </button>
+                        <button class="skill-btn py-3 px-4 rounded-lg border hover:bg-stone-100" data-index="4">
+                            協力する態度
+                        </button>
+                        <button class="skill-btn py-3 px-4 rounded-lg border hover:bg-stone-100" data-index="5">
+                            つながり重視
+                        </button>
+                        <button class="skill-btn py-3 px-4 rounded-lg border hover:bg-stone-100" data-index="6">
+                            挑戦する態度
+                        </button>
+                        <button class="skill-btn py-3 px-4 rounded-lg border hover:bg-stone-100" data-index="7">
+                            やり抜く力
+                        </button>
+                    </div>
+                </div>
+
+                <div class="lg:col-span-2 bg-stone-50 rounded-2xl p-6 flex flex-col justify-center">
+                    <span class="text-xs font-bold text-[#d98e59] tracking-wider uppercase mb-2">SKILL DETAILS</span>
+                    <h3 id="skill-name" class="text-2xl font-bold text-stone-800 mb-4">スキル名を選んでください</h3>
+                    <p id="skill-desc" class="text-stone-600 leading-relaxed text-sm">
+                        ここに説明が表示されます。
+                    </p>
+                </div>
+            </div>
+        </section>
+        <!-- SECTION 3: Timeline & Integration -->
+        <section class="bg-white rounded-3xl shadow-sm border border-stone-200 overflow-hidden">
+            <div class="flex border-b border-stone-200">
+                <button onclick="switchTab('timeline')" id="tab-timeline"
+                    class="flex-1 py-5 text-center font-bold text-stone-800 bg-white border-b-2 border-[#578a6e]">
+                    発達段階別の育成
+                </button>
+                <button onclick="switchTab('integration')" id="tab-integration"
+                    class="flex-1 py-5 text-center font-bold text-stone-400 bg-stone-50 border-b-2 border-transparent hover:text-stone-600">
+                    既存教育とのつながり
+                </button>
+            </div>
+
+            <div class="p-8 md:p-12 min-h-[400px]">
+                <!-- Timeline View -->
+                <div id="view-timeline" class="block fade-in">
+                    <div class="max-w-3xl mx-auto">
+                        <h3 class="text-xl font-bold text-stone-800 text-center mb-2">小・中・高の体系的なステップ</h3>
+                        <p class="text-center text-stone-500 mb-10 text-sm">成長に合わせて学びの内容を変化させ、力を定着させます。</p>
+
+                        <div class="space-y-0 relative">
+                            <div class="absolute left-6 top-4 bottom-4 w-1 bg-stone-200 rounded hidden md:block"></div>
+
+                            <div class="flex flex-col md:flex-row items-start md:items-center mb-8 relative z-10">
+                                <div
+                                    class="w-12 h-12 rounded-full bg-[#d98e59] text-white flex items-center justify-center font-bold text-lg shadow-sm mb-3 md:mb-0">
+                                    小
+                                </div>
+                                <div class="md:ml-8 flex-1 bg-stone-50 p-5 rounded-xl border-l-4 border-[#d98e59]">
+                                    <h4 class="font-bold text-stone-800 text-lg">マインドセットの醸成</h4>
+                                    <p class="text-stone-600 text-sm mt-1">興味関心を広げ、体験を通じて意欲を育む。</p>
+                                </div>
+                            </div>
+
+                            <div class="flex flex-col md:flex-row items-start md:items-center mb-8 relative z-10">
+                                <div
+                                    class="w-12 h-12 rounded-full bg-[#578a6e] text-white flex items-center justify-center font-bold text-lg shadow-sm mb-3 md:mb-0">
+                                    中
+                                </div>
+                                <div class="md:ml-8 flex-1 bg-stone-50 p-5 rounded-xl border-l-4 border-[#578a6e]">
+                                    <h4 class="font-bold text-stone-800 text-lg">マインド ＋ リーダーシップ</h4>
+                                    <p class="text-stone-600 text-sm mt-1">役割を持ち、チームで動く経験を積む。</p>
+                                </div>
+                            </div>
+
+                            <div class="flex flex-col md:flex-row items-start md:items-center relative z-10">
+                                <div
+                                    class="w-12 h-12 rounded-full bg-[#6b8cce] text-white flex items-center justify-center font-bold text-lg shadow-sm mb-3 md:mb-0">
+                                    高
+                                </div>
+                                <div class="md:ml-8 flex-1 bg-stone-50 p-5 rounded-xl border-l-4 border-[#6b8cce]">
+                                    <h4 class="font-bold text-stone-800 text-lg">スキル ＋ 実践</h4>
+                                    <p class="text-stone-600 text-sm mt-1">専門的活動やインターンに挑戦。</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Integration View -->
+                <div id="view-integration" class="hidden fade-in">
+                    <div class="max-w-3xl mx-auto text-center">
+                        <h3 class="text-xl font-bold text-stone-800 mb-6">ESD・キャリア教育との重なり</h3>
+                        <p class="text-stone-500 mb-8 text-sm">
+                            育てたい力（社会性、課題解決力、自己理解）は、他の教育分野とも重なります。
+                        </p>
+
+                        <div class="relative w-72 h-72 mx-auto mt-12">
+                            <div
+                                class="absolute top-0 left-0 w-48 h-48 rounded-full bg-[#578a6e] opacity-80 mix-blend-multiply flex items-start justify-center pt-8">
+                                <span class="text-white font-bold">ESD</span>
+                            </div>
+
+                            <div
+                                class="absolute top-0 right-0 w-48 h-48 rounded-full bg-[#6b8cce] opacity-80 mix-blend-multiply flex items-start justify-center pt-8">
+                                <span class="text-white font-bold">キャリア教育</span>
+                            </div>
+
+                            <div class="absolute top-20 left-12 right-12 text-center">
+                                <div class="text-white font-bold text-sm drop-shadow-md">
+                                    アントレ教育
+                                </div>
+                            </div>
+
+                            <div class="absolute -bottom-4 w-full text-center text-stone-400 text-xs">
+                                共通項：社会性・課題解決
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- SECTION 4: Process -->
+        <section id="process" class="scroll-mt-24">
+            <div class="mb-10">
+                <h2 class="text-3xl font-bold text-stone-800 mb-4">実践の核：「会社をつくる」プロセス</h2>
+                <div class="bg-stone-100 p-6 rounded-xl text-sm text-stone-600">
+                    <h4 class="font-bold mb-2">なぜ会社づくりか？</h4>
+                    <ul class="grid grid-cols-1 md:grid-cols-2 gap-2 list-disc pl-4">
+                        <li>失敗から学び、改善する経験ができる</li>
+                        <li>努力の成果を数字で理解できる</li>
+                        <li>身近で具体的な活動で学べる</li>
+                        <li>多様な役割でチームで働く経験ができる</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-6">
+                <div class="lg:col-span-4 space-y-2">
+                    <button onclick="setStep(1)" id="step-btn-1"
+                        class="w-full text-left p-4 rounded-lg border step-active bg-white hover:bg-stone-50 flex items-center">
+                        <div class="w-8 h-8 rounded-full bg-[#d98e59] text-white flex items-center justify-center font-bold text-sm mr-3">
+                            1
+                        </div>
+                        <span class="font-bold text-stone-700">会社設立・理念策定</span>
+                    </button>
+
+                    <button onclick="setStep(2)" id="step-btn-2"
+                        class="w-full text-left p-4 rounded-lg border bg-white hover:bg-stone-50 flex items-center">
+                        <div class="w-8 h-8 rounded-full bg-stone-200 text-stone-600 flex items-center justify-center font-bold text-sm mr-3">
+                            2
+                        </div>
+                        市場調査・ニーズ分析
+                    </button>
+
+                    <button onclick="setStep(3)" id="step-btn-3"
+                        class="w-full text-left p-4 rounded-lg border bg-white hover:bg-stone-50 flex items-center">
+                        <div class="w-8 h-8 rounded-full bg-stone-200 text-stone-600 flex items-center justify-center font-bold text-sm mr-3">
+                            3
+                        </div>
+                        企画立案・計画
+                    </button>
+
+                    <button onclick="setStep(4)" id="step-btn-4"
+                        class="w-full text-left p-4 rounded-lg border bg-white hover:bg-stone-50 flex items-center">
+                        <div class="w-8 h-8 rounded-full bg-stone-200 text-stone-600 flex items-center justify-center font-bold text-sm mr-3">
+                            4
+                        </div>
+                        実行・広報・販売
+                    </button>
+
+                    <button onclick="setStep(5)" id="step-btn-5"
+                        class="w-full text-left p-4 rounded-lg border bg-white hover:bg-stone-50 flex items-center">
+                        <div class="w-8 h-8 rounded-full bg-[#d98e59] text-white flex items-center justify-center font-bold text-sm mr-3">
+                            !
+                        </div>
+                        振り返り（最重要）
+                    </button>
+                </div>
+
+
+                <div class="lg:col-span-8 bg-white rounded-2xl shadow-sm border p-8 flex flex-col justify-center min-h-[300px]">
+                    <div id="step-content" class="fade-in">
+                        <span class="text-[#d98e59] font-bold tracking-widest text-xs uppercase mb-2 block">STEP 1</span>
+                        <h3 id="step-title" class="text-2xl font-bold text-stone-800 mb-4">理念とチームの土台づくり</h3>
+                        <p id="step-body" class="text-stone-600 leading-relaxed mb-6">
+                            自分たちは何を実現したいのか？  
+                            「会社設立シート」を使い、理念・組織構造・役割を決めます。
+                        </p>
+                        <div class="bg-stone-50 p-4 rounded-lg border inline-block">
+                            <span class="text-xs font-bold text-stone-500">使用ツール例：</span>
+                            <span id="step-tool" class="text-sm font-bold text-stone-700 ml-2">会社設立シート、役割分担表</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+
+        <!-- SECTION 5: Impact -->
+        <section id="impact" class="scroll-mt-24 bg-stone-50 rounded-3xl p-8 md:p-12">
+            <div class="text-center mb-10">
+                <h2 class="text-3xl font-bold text-stone-800 mb-4">実践事例とその成果</h2>
+                <p class="text-stone-600">
+                    熊本県での中学校実践に基づく、生徒アンケート結果です。
+                </p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-center">
+
+                <div class="space-y-6">
+                    <div class="bg-white p-6 rounded-xl shadow-sm border-l-4 border-[#578a6e]">
+                        <h4 class="text-stone-500 text-sm font-bold mb-1">地域貢献意識</h4>
+                        <div class="flex items-end">
+                            <span class="text-4xl font-bold text-[#578a6e]">30%</span>
+                            <span class="text-lg font-bold text-stone-400 mb-1 ml-1">向上</span>
+                        </div>
+                        <p class="text-xs text-stone-400 mt-2">自分たちの活動が社会に役立つと実感</p>
+                    </div>
+
+                    <div class="bg-white p-6 rounded-xl shadow-sm border-l-4 border-[#6b8cce]">
+                        <h4 class="text-stone-500 text-sm font-bold mb-1">将来への有用感</h4>
+                        <div class="flex items-end">
+                            <span class="text-4xl font-bold text-[#6b8cce]">20%</span>
+                            <span class="text-lg font-bold text-stone-400 mb-1 ml-1">向上</span>
+                        </div>
+                        <p class="text-xs text-stone-400 mt-2">「将来のために役立つ」と感じる自己効力感が増加</p>
+                    </div>
+                </div>
+
+                <div class="bg-white p-8 rounded-xl shadow-sm border border-stone-200 text-center">
+                    <p class="text-stone-500 text-sm mb-4">導入前 → 導入後（イメージ）</p>
+                    <div class="grid grid-cols-2 gap-6 text-center">
+                        <div>
+                            <p class="text-stone-400 text-xs mb-1">地域貢献意識</p>
+                            <p class="text-3xl font-bold text-stone-400">40 → 70</p>
+                        </div>
+                        <div>
+                            <p class="text-stone-400 text-xs mb-1">将来への有用感</p>
+                            <p class="text-3xl font-bold text-stone-400">50 → 70</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+
+
+        <!-- SECTION 6: Parent Involvement -->
+        <section id="parent" class="scroll-mt-24 bg-white rounded-3xl p-10 shadow-sm border border-stone-200 mt-20">
+            <h2 class="text-3xl font-bold text-stone-800 mb-6 text-center">親としての関わり方</h2>
+            <p class="text-stone-600 text-center max-w-3xl mx-auto mb-10 leading-relaxed">
+                子どもが主体的に学び、挑戦するためには、家庭の安心感と見守りが欠かせません。<br>
+                親がすべきは「教える」ことではなく、<strong class="text-[#578a6e]">伴走者として寄り添うこと</strong>です。
+            </p>
+
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 max-w-5xl mx-auto">
+
+                <div class="bg-stone-50 p-6 rounded-xl border border-stone-100">
+                    <h3 class="text-lg font-bold text-stone-700 mb-2">① 聴く：気持ちを受けとめる</h3>
+                    <p class="text-sm text-stone-600 leading-relaxed">
+                        「どうだった？」「何が楽しかった？」  
+                        結果よりプロセスを聞く姿勢が、挑戦を後押しします。
+                    </p>
+                </div>
+
+                <div class="bg-stone-50 p-6 rounded-xl border border-stone-100">
+                    <h3 class="text-lg font-bold text-stone-700 mb-2">② 任せる：子どもの判断を尊重</h3>
+                    <p class="text-sm text-stone-600 leading-relaxed">
+                        正解を与えず、「あなたはどうしたい？」を大切に。  
+                        自己決定の経験が子どもの成長を加速させます。
+                    </p>
+                </div>
+
+                <div class="bg-stone-50 p-6 rounded-xl border border-stone-100">
+                    <h3 class="text-lg font-bold text-stone-700 mb-2">③ 応援する：小さな挑戦を肯定する</h3>
+                    <p class="text-sm text-stone-600 leading-relaxed">
+                        成功・失敗に関係なく、「やってみたね」を伝える。  
+                        安心できる環境でこそ、子どもは本気を出せます。
+                    </p>
+                </div>
+
+            </div>
+
+            <div class="mt-12 text-center">
+                <p class="text-stone-500 text-sm">※ 保護者説明会で、関わり方のポイントをさらに詳しくお伝えします。</p>
+            </div>
+        </section>
+
+
+        <!-- SECTION 7: Summary -->
+        <section class="text-center pb-12 mt-20">
+            <h2 class="text-2xl font-bold text-stone-800 mb-8">未来を創造する力を育む好循環</h2>
+
+            <div class="max-w-4xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-6">
+
+                <div class="bg-white p-6 rounded-xl shadow-sm border border-stone-100">
+                    <div class="text-[#d98e59] font-black text-xl mb-2">WHY</div>
+                    <div class="text-sm font-bold text-stone-700">なぜ？</div>
+                    <p class="text-xs text-stone-500 mt-2">生徒の「生きる力」を育てるため</p>
+                </div>
+
+                <div class="bg-white p-6 rounded-xl shadow-sm border border-stone-100">
+                    <div class="text-[#578a6e] font-black text-xl mb-2">WHAT</div>
+                    <div class="text-sm font-bold text-stone-700">何を？</div>
+                    <p class="text-xs text-stone-500 mt-2">ESD的な価値創造の学び</p>
+                </div>
+
+                <div class="bg-white p-6 rounded-xl shadow-sm border border-stone-100">
+                    <div class="text-[#6b8cce] font-black text-xl mb-2">HOW</div>
+                    <div class="text-sm font-bold text-stone-700">どうやって？</div>
+                    <p class="text-xs text-stone-500 mt-2">会社づくりという実践プロセス</p>
+                </div>
+
+            </div>
+        </section>
+
+    </main>
+
+
+    <!-- FOOTER -->
+    <footer class="bg-stone-800 text-stone-400 py-8 text-center text-sm">
+        <p class="mb-2">© 2024 アントレプレナーシップ教育 説明資料</p>
+        <p class="text-xs text-stone-500">出典：「未来を創造する力を育む：学校ではじめるアントレプレナーシップ教育」</p>
+    </footer>
+
+
+    <!-- JavaScript -->
+    <script>
+        /* scroll */
+        function scrollToSection(id) {
+            document.getElementById(id).scrollIntoView({
+                behavior: 'smooth'
+            });
+        }
+
+        /* Purpose */
+        const purposeData = {
+            challenge: {
+                title: "挑戦 (Challenge)",
+                desc: "失敗を恐れず、新しいことに挑む精神。"
+            },
+            collab: {
+                title: "協働 (Collaboration)",
+                desc: "多様な人々と協力しながら価値を生み出す力。"
+            },
+            grit: {
+                title: "やり抜く力 (Grit)",
+                desc: "困難に負けず、最後まで取り組む姿勢。"
+            }
+        };
+
+        function updatePurpose(key) {
+            ['btn-challenge', 'btn-collab', 'btn-grit'].forEach(id => {
+                document.getElementById(id).classList.remove('node-active');
+            });
+
+            document.getElementById(`btn-${key}`).classList.add('node-active');
+
+            document.getElementById('purpose-title').textContent = purposeData[key].title;
+            document.getElementById('purpose-desc').textContent = purposeData[key].desc;
+        }
+
+
+        /* Skills (Button Interaction) */
+        const skillsButtons = document.querySelectorAll(".skill-btn");
+        const skillsInfo = [
+            {
+                name: "批判的思考",
+                desc: "複数視点から論理的に判断できる力。"
+            },
+            {
+                name: "未来予測・計画",
+                desc: "ゴールから逆算し、計画を立てる力。"
+            },
+            {
+                name: "多面的思考",
+                desc: "柔軟な発想で視点を切り替える力。"
+            },
+            {
+                name: "コミュニケーション",
+                desc: "説明・対話を通じた協働力。"
+            },
+            {
+                name: "協力する態度",
+                desc: "他者の意見を尊重し、チームで目標に向かう姿勢。"
+            },
+            {
+                name: "つながり重視",
+                desc: "地域・人・社会との関係性を大切にする心。"
+            },
+            {
+                name: "挑戦する態度",
+                desc: "失敗を恐れず行動する前向きな姿勢."
+            },
+            {
+                name: "やり抜く力",
+                desc: "困難があっても最後まで取り組む粘り強さ。"
+            }
+        ];
+
+        skillsButtons.forEach(btn => {
+            btn.addEventListener("click", () => {
+                const index = btn.dataset.index;
+
+                document.getElementById("skill-name").textContent = skillsInfo[index].name;
+                document.getElementById("skill-desc").textContent = skillsInfo[index].desc;
+
+                skillsButtons.forEach(b => b.classList.remove("bg-stone-200", "font-bold"));
+                btn.classList.add("bg-stone-200", "font-bold");
+            });
+        });
+
+
+        /* Tabs */
+        function switchTab(target) {
+            const tabs = ['timeline', 'integration'];
+            tabs.forEach(tab => {
+                const btn = document.getElementById(`tab-${tab}`);
+                const view = document.getElementById(`view-${tab}`);
+
+                if (tab === target) {
+                    btn.classList.remove('text-stone-400', 'bg-stone-50', 'border-transparent');
+                    btn.classList.add('text-stone-800', 'bg-white', 'border-[#578a6e]');
+                    view.classList.remove('hidden');
+                } else {
+                    btn.classList.add('text-stone-400', 'bg-stone-50', 'border-transparent');
+                    btn.classList.remove('text-stone-800', 'bg-white', 'border-[#578a6e]');
+                    view.classList.add('hidden');
+                }
+            });
+        }
+
+
+        /* Stepper */
+        const stepsInfo = [
+            {
+                id: 1,
+                title: "理念とチームの土台づくり",
+                tool: "会社設立シート、役割分担表",
+                body: "目的意識を共有し、役割を決め、チームの基盤を整える。"
+            },
+            {
+                id: 2,
+                title: "ニーズを捉え計画を立てる",
+                tool: "ニーズ分析シート",
+                body: "社会や身近な課題を発見し、解決方法を考える。"
+            },
+            {
+                id: 3,
+                title: "企画立案・収支計画",
+                tool: "事業計画書、予算書",
+                body: "価値提供の方法を考え、必要な材料・コストを計算。"
+            },
+            {
+                id: 4,
+                title: "実行・広報・販売",
+                tool: "ポスター、SNS、販売ブース",
+                body: "実際に商品をつくり、広報し、顧客に届ける。"
+            },
+            {
+                id: 5,
+                title: "振り返り（学びの核心）",
+                tool: "振り返りシート（KPTなど）",
+                body: "できたこと・できなかったことを客観的に見つめ、改善点を言語化。"
+            }
+        ];
+
+        function setStep(id) {
+            for (let i = 1; i <= 5; i++) {
+                const btn = document.getElementById(`step-btn-${i}`);
+                const icon = btn.querySelector("div");
+
+                if (i === id) {
+                    btn.classList.add("step-active");
+                    icon.classList.remove("bg-stone-200", "text-stone-600");
+                    icon.classList.add("bg-[#d98e59]", "text-white");
+                } else {
+                    btn.classList.remove("step-active");
+                    icon.classList.add("bg-stone-200", "text-stone-600");
+                    icon.classList.remove("bg-[#d98e59]", "text-white");
+                }
+            }
+
+            const data = stepsInfo.find(s => s.id === id);
+            document.getElementById("step-title").textContent = data.title;
+            document.getElementById("step-body").textContent = data.body;
+            document.getElementById("step-tool").textContent = data.tool;
+            document.querySelector("#step-content span").textContent = `STEP ${id}`;
+        }
+    </script>
+
+</body>
+
+</html>
