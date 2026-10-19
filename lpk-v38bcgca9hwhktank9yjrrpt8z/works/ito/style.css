@@ -1,0 +1,210 @@
+/* ひだまり手芸サークル「一本の糸」（第6回で人が採用した案A）
+   毛糸玉からほどけた1本の糸がページの骨組み。糸は編み目・なみ縫い・巻きかがりに姿を変え、
+   おしゃべりの輪を作り、糸巻き（日時）・針（場所）・ボタン（会費）・結び（参加条件）を通って、玉結び（見学）で終わる。
+   糸の道すじ＝読む順番。区画（箱）で囲まず、糸の通り道と余白で情報を分ける。
+   提案コピーは丸い書体（Kiwi Maru）、事実（日時・場所・会費など）はゴシックで、見た目でも分ける */
+:root {
+  --cream: #f7f0e3; --ink: #3a2e28; --soft: #5a4c43; --coral: #d46a4c; --coral-text: #9c3d27; --teal-text: #2b5f60;
+  --round: 'Kiwi Maru', serif; --gothic: 'Zen Kaku Gothic New', sans-serif;
+  --wrap: 1200px; --pad: 40px; --lane: 0px;
+  --banner-bg: #3a2e28; --banner-fg: #f7f0e3;
+}
+body { color: var(--ink); font-family: var(--gothic); font-size: 17px; line-height: 1.85;
+  background-color: var(--cream);
+  background-image: repeating-linear-gradient(0deg, rgba(90, 60, 30, .03) 0 1px, transparent 1px 5px), repeating-linear-gradient(90deg, rgba(90, 60, 30, .025) 0 1px, transparent 1px 5px); }
+a:focus-visible { outline: 2px solid var(--coral-text); outline-offset: 2px; }
+.page { position: relative; overflow: hidden; }
+.thread { position: absolute; left: 0; top: 0; pointer-events: none; z-index: 1; }
+/* JavaScriptが動かない環境：曲線の糸は描けないので、左端に1本の糸を静止した線で引く（文字・絵・情報はHTMLなので、そのまま読める） */
+.page::before { content: ''; position: absolute; left: 18px; top: 0; bottom: 0; width: 7px; border-radius: 4px; z-index: 0;
+  background: repeating-linear-gradient(180deg, rgba(168, 71, 47, .7) 0 1.4px, transparent 1.4px 5px), #d46a4c; }
+.page.has-thread::before { display: none; }
+@media (min-width: 821px) { .page:not(.has-thread) main, .page:not(.has-thread) .top, .page:not(.has-thread) .footer { padding-left: 24px; } }
+main, .top, .footer { position: relative; z-index: 2; }
+.art { position: relative; }
+.art svg { display: block; width: 100%; height: auto; overflow: visible; }
+i[data-thread], i[data-thread-sp] { position: absolute; width: 0; height: 0; }
+.art__in { position: relative; }
+.copy { font-family: var(--round); font-weight: 500; }
+
+.top { display: flex; align-items: baseline; gap: 14px; max-width: var(--wrap); margin: 0 auto; padding: 22px var(--pad) 0; }
+.logo { font-family: var(--round); font-size: 20px; letter-spacing: .1em; }
+.recruit { font-size: 15px; font-weight: 700; color: var(--coral-text); }
+
+/* 1画面目 */
+.hero { position: relative; max-width: var(--wrap); margin: 0 auto; padding: 34px var(--pad) 0; display: grid; grid-template-columns: 1.3fr .7fr; align-items: start; }
+.hero__ball { grid-column: 2; grid-row: 1; width: min(100%, 390px); justify-self: end; }
+.hero__txt { grid-column: 1; grid-row: 1; padding-top: 30px; }
+.kicker { font-size: 16px; font-weight: 700; letter-spacing: .14em; color: var(--teal-text); }
+.hero h1 { margin-top: 14px; font-size: clamp(40px, 5vw, 64px); line-height: 1.35; letter-spacing: .04em; }
+.lead { margin-top: 20px; max-width: 30em; font-size: 18px; }
+.lead strong { color: var(--coral-text); }
+.points { display: flex; flex-wrap: wrap; gap: 14px 40px; margin-top: 28px; }
+.points dt { font-size: 15px; font-weight: 700; letter-spacing: .12em; color: var(--coral-text); }
+.points dd { font-size: 19px; font-weight: 700; line-height: 1.55; }
+
+/* 見出し（提案コピー） */
+.sec-title { font-family: var(--round); font-weight: 500; font-size: clamp(27px, 2.7vw, 34px); line-height: 1.5; letter-spacing: .06em; }
+
+/* 三つの手しごと：糸が左上→中央→右下へ下りながら、編み目・刺しゅう・縫い目になる */
+.crafts { position: relative; max-width: var(--wrap); margin: 56px auto 0; padding: 0 var(--pad); }
+.crafts__title { text-align: right; padding-right: 6%; }
+.station { position: relative; display: flex; align-items: center; gap: 26px; }
+.label b { display: block; font-family: var(--round); font-weight: 500; font-size: 30px; line-height: 1.3; white-space: nowrap; }
+.label span { font-size: 16px; color: var(--soft); }
+.st-knit { margin: 10px 0 0 4%; }
+.st-knit .art { width: 250px; flex: none; }
+.st-emb { margin: -40px 0 0 34%; flex-direction: row-reverse; justify-content: flex-end; }
+.st-emb .art { width: 400px; flex: none; }
+.st-patch { margin: -30px 0 0 auto; width: 46%; flex-direction: row-reverse; justify-content: flex-end; }
+.st-patch .art { width: 290px; flex: none; }
+.st-patch .label { text-align: right; }
+
+/* おしゃべりの「輪」：糸がチラシの言葉をぐるりと囲む */
+.voice { position: relative; max-width: var(--wrap); margin: 72px auto 0; padding: 0 var(--pad); }
+.ring { position: relative; width: min(100%, 720px); margin-left: 9%; padding: 56px 60px; }
+.eyebrow { font-family: var(--gothic); font-size: 15px; font-weight: 700; letter-spacing: .24em; color: var(--coral-text); }
+.ring blockquote { margin: 10px 0 0; }
+.ring blockquote p { font-family: var(--round); font-weight: 500; font-size: clamp(24px, 2.6vw, 32px); line-height: 1.7; letter-spacing: .04em; }
+.voice__note { margin-top: 12px; font-size: 17px; }
+
+/* 見学のご案内：糸が、糸巻き（日時）→針（場所）→ボタン（会費）→結び（参加条件）を順に通る。左右に振り、間の余白を糸が渡る */
+.guide { position: relative; max-width: 1000px; margin: 64px auto 0; padding: 0 var(--pad); }
+.guide .sec-title { padding-left: 4%; }
+.row { display: grid; grid-template-columns: 1fr 1fr; align-items: center; column-gap: 40px; }
+.row--r .fact { grid-column: 1; justify-self: end; }
+.row--r .art { grid-column: 2; justify-self: start; }
+.row--l .fact { grid-column: 2; grid-row: 1; justify-self: start; }
+.row--l .art { grid-column: 1; grid-row: 1; justify-self: end; }
+.gap { position: relative; height: 56px; }
+.fact { width: min(100%, 360px); }
+.fact dt { font-size: 16px; font-weight: 700; letter-spacing: .16em; color: var(--coral-text); }
+.fact dd b { display: block; font-size: clamp(26px, 2.6vw, 30px); line-height: 1.4; }
+.fact dd > span { display: block; margin-top: 4px; font-size: 17px; color: var(--soft); }
+.art--bob { width: 160px; }
+.art--needle { width: 260px; }
+.art--btn { width: 130px; }
+.art--bow { width: 190px; }
+
+/* 見学のしかた：糸の終わりの玉結び */
+.visit { position: relative; max-width: var(--wrap); margin: 72px auto 0; padding: 0 var(--pad) 72px 22%; display: flex; align-items: flex-start; gap: 22px; }
+.art--knot { width: 104px; flex: none; margin-top: 4px; }
+.visit__label { font-size: 16px; font-weight: 700; letter-spacing: .16em; color: var(--coral-text); }
+.visit h2 { margin-top: 4px; font-size: clamp(32px, 3.4vw, 42px); line-height: 1.4; letter-spacing: .06em; }
+.visit__how { margin-top: 10px; font-size: 18px; }
+.visit__how strong { border-bottom: 2px solid var(--coral); }
+
+.footer { max-width: var(--wrap); margin: 0 auto; padding: 22px var(--pad) 36px; border-top: 1px dashed #cdbb9f; color: var(--soft); }
+.footer__name { font-family: var(--round); font-size: 16px; letter-spacing: .1em; color: var(--ink); }
+.footer__credits { margin-top: 8px; font-size: 14px; line-height: 1.8; }
+
+/* PC（821〜1100px）：少しずつ詰める */
+@media (max-width: 1100px) {
+  .st-emb { margin-left: 26%; }
+  .st-emb .art { width: 340px; }
+  .ring { margin-left: 4%; }
+}
+
+/* タブレット（640〜1023px）：スマホの「左端の通り道」を横に広げると、糸が画面の端から端へ水平に往復し、直角に折り返して配線のように見える。
+   そこで、PCと同じ「左右に振る」構造をタブレットの幅に詰め直す。糸は絵と絵の間の余白を、ゆるいS字で斜めに渡る（水平の往復をしない）。
+   絵・文字・余白の大きさだけを変え、糸の道すじ（読む順番）はPCと同じ */
+@media (min-width: 640px) and (max-width: 1023px) {
+  :root { --pad: 32px; }
+  .top { padding-top: 20px; }
+  .hero { grid-template-columns: 1.3fr .7fr; padding-top: 22px; }
+  .hero__ball { width: min(100%, 280px); }
+  .hero__txt { padding-top: 12px; }
+  .hero h1 { font-size: clamp(36px, 5.4vw, 48px); }
+  .lead { font-size: 17px; }
+  .points { flex-direction: column; gap: 8px; margin-top: 20px; } /* 横に並べると、毛糸玉からの糸が要点の上を通る */
+  .points > div { display: flex; align-items: baseline; gap: 14px; }
+  .points dt { min-width: 3.5em; }
+  .st-emb .label { align-self: flex-start; padding-top: 6px; } /* 糸は布の左から入るので、文字は上に寄せて糸の下を空ける */
+  .points dd { font-size: 18px; }
+  .crafts { margin-top: 44px; }
+  .crafts__title { font-size: clamp(24px, 3.2vw, 28px); padding-right: 2%; }
+  .label b { font-size: 26px; }
+  .st-knit { margin: 6px 0 0 2%; }
+  .st-knit .art { width: 190px; }
+  .st-emb { margin: -10px 0 0 16%; }
+  .st-emb .art { width: 290px; }
+  .st-patch { width: 64%; margin-top: -18px; }
+  .st-patch .art { width: 210px; }
+  .voice { margin-top: 56px; }
+  .ring { width: 74%; margin-left: 3%; padding: 58px 48px 76px 56px; }
+  .ring blockquote p { font-size: clamp(21px, 2.9vw, 26px); }
+  .guide { max-width: none; margin-top: 56px; }
+  .row { column-gap: 24px; }
+  .gap { height: 72px; }
+  .row--r .fact { justify-self: start; padding-left: 4%; }
+  .row--l .fact { padding-right: 2%; }
+  .art--bob { width: 130px; }
+  .art--needle { width: 210px; }
+  .art--btn { width: 108px; }
+  .art--bow { width: 160px; }
+  .fact dd b { font-size: clamp(23px, 3.2vw, 26px); }
+  .visit { margin-top: 60px; padding-left: 14%; }
+  .art--knot { width: 88px; }
+  .visit h2 { font-size: clamp(28px, 4vw, 34px); }
+}
+
+/* 狭いタブレット（640〜699px）：毛糸玉からの糸が通る右側を空ける */
+@media (min-width: 640px) and (max-width: 699px) {
+  .lead { max-width: 15em; }
+  .crafts__title { text-align: left; padding: 0 0 0 30%; }
+  .hero__ball { width: 220px; }
+}
+
+/* スマホ（639px以下）：画面の左端に「糸の通り道」を空け、1本の糸が上から下までつながる。
+   文字は通り道の右側だけに置き、糸は絵のある段でだけ右へ振れる */
+@media (max-width: 639px) {
+  :root { --pad: 16px; --lane: 48px; }
+  .top { padding: 16px var(--pad) 0 var(--lane); flex-wrap: wrap; gap: 2px 12px; }
+  .logo { font-size: 18px; }
+  .hero { display: block; padding: 0 var(--pad) 0 var(--lane); }
+  .hero__ball { width: 150px; margin: -8px 0 0 auto; padding-bottom: 44px; }
+  .hero__txt { padding-top: 0; }
+  .hero h1 { font-size: clamp(30px, 8.6vw, 40px); }
+  .lead { font-size: 17px; margin-top: 14px; }
+  .points { flex-direction: column; gap: 10px; margin-top: 20px; }
+  .points dd { font-size: 18px; }
+  .crafts { margin-top: 30px; padding: 0 var(--pad) 0 var(--lane); }
+  .crafts__title { text-align: left; padding: 0; }
+  .station { margin: 30px 0 0 !important; width: auto !important; display: flex; flex-direction: column !important; align-items: stretch; gap: 0; }
+  .station .label { order: -1; }
+  .station .art { margin: 0 0 0 auto; padding: 28px 0 34px; }
+  .st-knit .art { width: 140px; margin-right: 18%; }
+  .st-emb .art { width: min(100%, 260px); }
+  .st-patch .art { width: 170px; margin-right: 12%; }
+  .st-patch .label { text-align: left; }
+  .label b { font-size: 26px; }
+  .voice { margin-top: 30px; padding: 0 var(--pad) 0 0; }
+  .ring { width: 100%; margin: 0; padding: 46px 12px 46px var(--lane); }
+  .ring blockquote p { font-size: clamp(20px, 5.6vw, 24px); }
+  .guide { margin-top: 44px; padding: 0 var(--pad) 0 var(--lane); }
+  .guide .sec-title { padding: 0; }
+  .row { display: flex; flex-direction: column; align-items: stretch; }
+  .row .fact { order: 1; width: auto; justify-self: auto; }
+  .row .art { order: 2; align-self: flex-end; margin: 0 6% 0 0; padding: 28px 0 32px; }
+  .gap { height: 12px; }
+  .art--bob { width: 110px; }
+  .art--needle { width: 190px; }
+  .art--btn { width: 96px; }
+  .art--bow { width: 140px; }
+  .fact dd b { font-size: 25px; }
+  .visit { margin-top: 48px; padding: 0 var(--pad) 56px 0; gap: 10px; }
+  .art--knot { width: 58px; margin: -6px 0 0 -2px; }
+  .visit h2 { font-size: clamp(26px, 7.4vw, 32px); }
+  .visit__how { font-size: 17px; }
+  .footer { padding: 20px var(--pad) 32px var(--lane); }
+}
+@media (max-width: 360px) {
+  .fact dd b { font-size: 23px; }
+  .label b { font-size: 24px; }
+}
+
+/* 動く版：モチーフ（絵と、絵につながる短い糸）は、糸先が届くと現れる。毛糸玉は糸の出発点なので最初から表示。
+   JavaScriptなし・動きを減らす設定では .motion が付かないので、全部表示 */
+.page.motion .art:not(.hero__ball) { opacity: 0; filter: blur(5px); transition: opacity .42s ease-out, filter .42s ease-out; }
+.page.motion .art.is-in { opacity: 1; filter: none; }
+@media (prefers-reduced-motion: reduce) { .page.motion .art:not(.hero__ball) { opacity: 1; filter: none; transition: none; } }

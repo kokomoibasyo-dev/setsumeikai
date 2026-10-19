@@ -1,0 +1,52 @@
+<!doctype html>
+<html lang="ja"><head><meta charset="utf-8">
+<meta name="robots" content="noindex, nofollow, noarchive">
+<meta name="referrer" content="no-referrer"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>試作 ホラー 和本のページめくりv3（持ち上げ→パラッとめくる）</title><link rel="icon" href="data:,">
+<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Yuji+Syuku&family=Shippori+Mincho+B1:wght@500;700&display=swap">
+<link rel="stylesheet" href="style.css">
+<script src="flip.js" defer></script>
+</head><body>
+<p class="note">ページめくりの試作 v3（ゆっくり持ち上がり、パラッとめくれる）｜架空の催し｜挿絵：葛飾北斎「百物語」（パブリックドメイン）｜和紙：江戸時代の版本の写真をぼかして使用（パブリックドメイン）</p>
+<main>
+<section class="flip" id="flip" aria-label="百物語の夜（和本）">
+  <div class="stage">
+    <div class="book">
+      <!-- 見開き1：左＝挿絵（さらやしき）、右＝扉（題と奥付） -->
+      <div class="spread spread--1">
+        <figure class="pg pg--l"><div class="ill"><img src="../img/sarayashiki.jpg" alt="葛飾北斎「百物語　さらやしき」。井戸から皿をつらねた長い体の幽霊が立ちのぼる錦絵" width="1500" height="2069"><figcaption>北斎「百物語　さらやしき」</figcaption></div><p class="chou">一</p></figure>
+        <div class="pg pg--r pg--front">
+          <p class="hashira" aria-hidden="true">百物語　一</p>
+          <div class="kyo">
+            <h1>百物語の夜</h1>
+            <p class="sub">古民家で聴く、夏の怪談</p>
+            <p class="lead">夏の夜、古民家の座敷で。<br><b>こわい話です。</b>中学生以上。</p>
+            <dl class="oku"><div><dt>日時</dt><dd>二〇二七年八月十四日（土）</dd></div><div><dd>午後七時〜九時（受付 六時半）</dd></div><div><dt>会場</dt><dd>旧小林家住宅 座敷</dd></div><div><dt>参加費</dt><dd>千五百円</dd></div><div><dt>定員</dt><dd>二十名・当日受付（先着）</dd></div></dl>
+          </div>
+          <p class="turn-hint" aria-hidden="true">下へ読み進めると、頁がめくれます</p>
+        </div>
+      </div>
+      <!-- 見開き2：左＝挿絵（お岩さん）＝右の頁の裏、右＝其の一 -->
+      <div class="spread spread--2">
+        <figure class="pg pg--l pg--l2"><div class="ill"><img src="../img/oiwa.jpg" alt="葛飾北斎「百物語　お岩さん」。破れた提灯に女の顔が浮かぶ錦絵" width="1400" height="1934"><figcaption>北斎「百物語　お岩さん」</figcaption></div><p class="chou">二</p></figure>
+        <div class="pg pg--r pg--under">
+          <p class="hashira" aria-hidden="true">百物語　二</p>
+          <div class="kyo">
+            <p class="no">其の一</p>
+            <h2>灯をひとつ、<br>消すたびに。</h2>
+            <p class="lead">百物語は、夜に人が集まって怪談を一話ずつ語る、江戸時代から伝わる遊びです。言い伝えでは、百本の灯をともし、一話語り終えるごとに一つずつ消していきます。</p>
+            <p class="lead small">頁をめくるたび、下の灯がひとつ消えます（演出です）。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="lights" aria-hidden="true"><p>のこりの灯　<span class="lights__n">十</span></p><i class="l"></i><i class="l"></i><i class="l"></i><i class="l"></i><i class="l"></i><i class="l"></i><i class="l"></i><i class="l"></i><i class="l"></i><i class="l"></i></div>
+    <div class="dusk" aria-hidden="true"></div>
+  </div>
+</section>
+<section class="after" aria-label="この試作について">
+  <p>試作はここまで（1回のページめくり）。審査のあと、各話・参加案内まで展開します。</p>
+</section>
+</main>
+</body></html>
