@@ -1,0 +1,33 @@
+/* v3: static first. No selector hides a route paper with !important. */
+.kicker,.eyebrow,small{font-size:14px;line-height:1.65}.choice-track,.flow-track{height:auto}.choice-stage,.flow-stage{position:relative;height:auto;min-height:0;padding:76px max(7vw,24px)}.choice-copy,.flow-copy{position:relative;top:auto;left:auto;max-width:700px}.choice-scenes{position:relative;inset:auto;display:grid;grid-template-columns:repeat(3,1fr);gap:14px;margin-top:38px}.scene{position:relative;right:auto;bottom:auto;width:auto;min-height:245px;opacity:1!important;transform:none!important}.paper-route{position:relative;right:auto;bottom:auto;width:auto;height:auto;display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:38px}.paper-route article{position:relative;left:auto;right:auto;top:auto;bottom:auto;width:auto;height:145px;opacity:1;transform:none}.gesture{display:none}.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0)}.choice-detail p,.flow-detail p,.flow-detail aside,.eligible li{font-size:16px;line-height:1.8}.flow-detail aside small{font-size:14px}
+html.motion .choice-track,html.motion .flow-track{height:200svh}html.motion .choice-stage,html.motion .flow-stage{position:sticky;top:0;height:100svh;min-height:600px;padding:0}html.motion .choice-copy,html.motion .flow-copy{position:absolute;top:13%;left:max(7vw,24px)}html.motion .choice-scenes{position:absolute;inset:0;display:block;margin:0}html.motion .scene{position:absolute;right:7vw;bottom:11%;width:min(41vw,560px);min-height:300px;opacity:0;transform:translateY(8vh)}html.motion .water{opacity:var(--a)!important;transform:translateY(calc((1 - var(--a))*8vh))!important}html.motion .machine{opacity:var(--b)!important;transform:translateY(calc((1 - var(--b))*8vh))!important}html.motion .rhythm{opacity:var(--c)!important;transform:translateY(calc((1 - var(--c))*8vh))!important}html.motion .paper-route{position:absolute;right:7vw;bottom:10%;display:block;width:min(43vw,580px);height:390px;margin:0}html.motion .paper-route article{position:absolute;width:150px;height:117px;opacity:0;transform:translateY(35px) rotate(-4deg)}html.motion .route-place{left:0;top:10%;opacity:var(--a)!important;transform:translateY(calc((1 - var(--a))*35px)) rotate(-4deg)!important}html.motion .route-apply{left:31%;bottom:4%;opacity:var(--b)!important;transform:translateY(calc((1 - var(--b))*35px)) rotate(3deg)!important}html.motion .route-ticket{right:4%;top:6%;opacity:var(--c)!important;transform:translateY(calc((1 - var(--c))*35px)) rotate(-2deg)!important}html.motion .route-months{right:0;bottom:7%;opacity:var(--d)!important;transform:translateY(calc((1 - var(--d))*35px)) rotate(4deg)!important}.official-panel{margin:0;padding:52px max(7vw,24px);background:#fffdf8}.official-panel a{font-weight:700}
+@media(max-width:767px){.choice-scenes,.paper-route{grid-template-columns:1fr}.scene{min-height:215px}.paper-route article{height:126px}.choice-detail p{font-size:15px}html.motion .choice-track,html.motion .flow-track{height:185svh}html.motion .choice-stage,html.motion .flow-stage{min-height:560px;padding:0}html.motion .choice-copy,html.motion .flow-copy{top:10%;left:24px;right:24px}html.motion .choice-scenes{position:absolute;inset:0;display:block}html.motion .scene{right:24px;left:24px;bottom:12%;width:auto;min-height:225px}html.motion .paper-route{right:24px;left:24px;bottom:10%;width:auto;height:270px}html.motion .paper-route article{width:138px;height:105px;font-size:14px}.route-place{left:0}.route-apply{left:calc(50% - 69px)}.route-ticket{right:0}.route-months{right:calc(50% - 69px);bottom:0}}@media(prefers-reduced-motion:reduce){html.motion .choice-track,html.motion .flow-track{height:auto}html.motion .choice-stage,html.motion .flow-stage{position:relative;height:auto;min-height:0;padding:76px max(7vw,24px)}html.motion .choice-copy,html.motion .flow-copy{position:relative;top:auto;left:auto}html.motion .choice-scenes,html.motion .paper-route{position:relative;inset:auto;display:grid;margin-top:38px}html.motion .scene,html.motion .paper-route article{position:relative;inset:auto;width:auto;height:auto;min-height:125px;opacity:1!important;transform:none!important}}
+
+/* v3.3: 見出しは<wbr>の位置で改行（1文字だけの行を防ぐ）。はみ出す場合だけ任意位置で折る */
+h1,h2{word-break:keep-all;overflow-wrap:anywhere}
+/* v3.3: 明るい背景の珊瑚色の文字を濃くする（4.5:1以上）。ボタンは白文字が読める濃さに */
+.choice-copy .kicker,.choice-copy em,.flow-copy .kicker,.flow-copy em,.official-panel .kicker,.official-panel em,.paper-route b{color:#9e4430}
+.button{background:#a84b35}
+header a{display:inline-flex;align-items:center;min-height:44px}
+.image-note,footer{font-size:12px}
+/* v3.3: PCの運動例は、次のカードを早く不透明にして文字の重なりを短くする */
+html.motion .machine{opacity:calc(var(--b)*4)!important}
+html.motion .rhythm{opacity:calc(var(--c)*4)!important}
+/* v3.3: スマホは演出をやめ、運動例3つと申込手順4つを縦に全部表示（重なって01〜03が見えない不具合の修正） */
+@media(max-width:767px){html.motion .choice-track,html.motion .flow-track{height:auto}html.motion .choice-stage,html.motion .flow-stage{position:relative;height:auto;min-height:0;padding:72px 24px}html.motion .choice-copy,html.motion .flow-copy{position:relative;inset:auto}html.motion .choice-scenes,html.motion .paper-route{position:relative;inset:auto;display:grid;gap:12px;width:auto;height:auto;margin-top:38px}html.motion .scene,html.motion .paper-route article{position:relative;inset:auto;width:auto;opacity:1!important;transform:none!important}html.motion .scene{min-height:215px}html.motion .paper-route article{height:auto;min-height:105px}}
+
+/* v3.4: 運動例カードの装飾は上の帯にだけ置き、文字と重ねない */
+.scene:before{inset:0 0 auto 0;height:56px}
+.scene{padding-top:96px}
+/* v3.4: 返金なしの注意を目立たせる */
+.notice.caution{border-left:6px solid #9e4430;background:#fbeee8;padding:14px 18px}
+/* v3.4: フレイルチェック（チラシの6項目） */
+.frail{padding:clamp(72px,9vw,120px) max(7vw,24px);background:var(--paper)}
+.frail .kicker,.frail em{color:#9e4430}
+.frail-lead{max-width:640px;margin:24px 0 0}
+.frail-list{list-style:none;padding:0;margin:36px 0 0;display:grid;grid-template-columns:repeat(3,1fr);gap:12px;max-width:1100px}
+.frail-list li{display:flex;gap:14px;align-items:center;min-height:84px;padding:18px 20px;background:var(--white);border:1px solid var(--line);font-size:17px;line-height:1.6}
+.frail-list b{flex:none;display:grid;place-content:center;width:36px;height:36px;border-radius:50%;background:var(--deep);color:#fff;font-size:16px}
+.frail-note{max-width:700px;margin:28px 0 0;font-size:15px}
+@media(max-width:1023px){.frail-list{grid-template-columns:repeat(2,1fr)}}
+@media(max-width:767px){.frail-list{grid-template-columns:1fr}.frail-list li{min-height:0}}

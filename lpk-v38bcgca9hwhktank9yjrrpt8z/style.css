@@ -130,3 +130,15 @@ a:focus-visible{outline:3px solid #3b4f86;outline-offset:4px}
   .flow{display:none}
 }
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.js [data-reveal]{opacity:1;transform:none;transition:none}.btn{transition:none}}
+
+/* ===== 04 シニア運動習慣サポート（実在する行政事業を題材にした非公式サンプル）。既存3作品の指定は変えず、ここに追加 ===== */
+.work--haebaru{--bg:#eef3f0;--fg:#183d3a;--ac:#9e4430;--sub:#4c5a56;--edge:rgba(24,61,58,.18)}
+.work--haebaru .work__title{font-family:var(--gt);font-weight:700;letter-spacing:.06em}
+.work__lead{margin-top:12px;max-width:42em;font-size:16.5px;line-height:1.8;color:var(--fg)}
+.refdoc{display:flex;flex-direction:column;aspect-ratio:778/1100;padding:12% 10%;background:#fffdf8;border:1px solid var(--edge);transform:rotate(2deg);box-shadow:0 1px 2px rgba(0,0,0,.14),0 18px 36px rgba(0,0,0,.18)}
+.refdoc__t{font-weight:700;font-size:clamp(17px,1.4vw,21px);line-height:1.6;color:var(--fg)}
+.refdoc ul{margin-top:1.2em;padding-left:1.1em;list-style:disc;font-size:15px;line-height:1.8;color:var(--fg)}
+.refdoc li+li{margin-top:.4em}
+.refdoc__note{margin-top:auto;padding-top:12px;border-top:1px dashed var(--edge);font-size:14px;line-height:1.7;color:var(--sub)}
+.work--haebaru .status a{color:var(--ac);font-weight:700}
+@media (max-width:900px){.work--haebaru .ba__before{width:100%;max-width:420px}.refdoc{aspect-ratio:auto;transform:none}}

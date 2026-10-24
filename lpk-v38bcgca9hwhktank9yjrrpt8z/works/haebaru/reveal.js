@@ -1,0 +1,2 @@
+// v3.5: 画面に入った要素を一度だけ静かに表示する。動きを減らす設定・JavaScript無効時は何もしない（最初から全部見える）
+(()=>{if(matchMedia("(prefers-reduced-motion: reduce)").matches||!("IntersectionObserver"in window))return;const els=document.querySelectorAll("[data-reveal]");document.documentElement.classList.add("reveal");const io=new IntersectionObserver(es=>es.forEach(e=>{if(e.isIntersecting){e.target.classList.add("is-in");io.unobserve(e.target)}}),{rootMargin:"0px 0px -10% 0px",threshold:0});els.forEach(el=>io.observe(el))})();
