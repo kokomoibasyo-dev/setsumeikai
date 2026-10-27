@@ -132,6 +132,8 @@ a:focus-visible{outline:3px solid #3b4f86;outline-offset:4px}
 @media (prefers-reduced-motion:reduce){html{scroll-behavior:auto}.js [data-reveal]{opacity:1;transform:none;transition:none}.btn{transition:none}}
 
 /* ===== 04 シニア運動習慣サポート（実在する行政事業を題材にした非公式サンプル）。既存3作品の指定は変えず、ここに追加 ===== */
+.work--star{--bg:#0b1226;--fg:#eef0f7;--ac:#f2c14e;--sub:#b8c0dc;--edge:rgba(238,240,247,.18)}
+.work--star .work__title{font-family:var(--min);letter-spacing:.06em}
 .work--haebaru{--bg:#eef3f0;--fg:#183d3a;--ac:#9e4430;--sub:#4c5a56;--edge:rgba(24,61,58,.18)}
 .work--haebaru .work__title{font-family:var(--gt);font-weight:700;letter-spacing:.06em}
 .work__lead{margin-top:12px;max-width:42em;font-size:16.5px;line-height:1.8;color:var(--fg)}

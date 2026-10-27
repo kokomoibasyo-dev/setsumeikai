@@ -1,0 +1,11 @@
+/* 差分はここだけ：ヒーロー画像の見せ方と色味。本文・構成・CTA は style.css（共通）のまま */
+.scene { width: 100%; height: 100%; min-width: 0; aspect-ratio: auto; object-fit: cover; object-position: right 60%; }   /* スマホは右（人・望遠鏡・月）を残す。PC は上下を少しずつ切る（届いた絵は人が縦78%より下にあるため、下だけを切らない） */
+.v-photo { --scrim-top: .78; --scrim-mid: .42; --scrim-bottom: .6; }   /* 写真は明暗の差が大きいので文字の下を少し濃く */
+.v-illust { --scrim-top: .72; --scrim-mid: .35; --scrim-bottom: .55; } /* イラストは今の A と同じ */
+.hero::after { background: linear-gradient(180deg, rgba(5,10,31,var(--scrim-top)) 0%, rgba(5,10,31,var(--scrim-mid)) 38%, rgba(5,10,31,0) 60%, rgba(5,10,31,var(--scrim-bottom)) 100%); }
+/* スマホでは文字が画像全体に重なるため、文字の下に一定の暗さを足す */
+@media (max-width: 767px) { .hero-in { background: linear-gradient(180deg, rgba(5,10,31,.35), rgba(5,10,31,.35) 85%, rgba(5,10,31,0)); } }
+.hero > picture { position: absolute; inset: 0; }   /* 画像は重ねるだけ（並びに加えない） */
+/* 修正1（A・B）：小さい文字（注記・中止の表示）が町の明かりや夕焼けに重なっても読めるよう、文字の下だけ暗くする */
+.hero-in .art-note { width: fit-content; padding: 4px 10px; border-radius: 8px; background: rgba(5,10,31,.72); color: #d4d9ec; }
+.hero-in .stop { background: rgba(5,10,31,.6); }

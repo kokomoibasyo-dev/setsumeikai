@@ -1,0 +1,80 @@
+/* 星空観察会（案） A/B 共通の見た目。夜の観察会らしい深い紺と星の金。題字と見出しは明朝、事実はゴシック。外部の書体・画像なし
+   A はこのまま（夜の絵の静止）。B は fx.css・fx.js を足して、同じ絵を夕暮れ→夜に変える */
+:root {
+  --bg: #0b1226; --panel: #131d3f; --line: #26335f; --text: #eef0f7; --muted: #b8c0dc; --gold: #f2c14e; --memo: #ff9a8a;
+  --mincho: "Hiragino Mincho ProN", "Yu Mincho", YuMincho, "Noto Serif JP", serif;
+  font-family: "Hiragino Kaku Gothic ProN", "Hiragino Sans", "Yu Gothic", YuGothic, "Noto Sans JP", Meiryo, sans-serif;
+  color: var(--text); background: var(--bg); font-size: 17px; line-height: 1.8; -webkit-text-size-adjust: 100%;
+}
+* { box-sizing: border-box; }
+body { margin: 0; }
+h1, h2, p, ul, dl, dd { margin: 0; padding: 0; }
+.phrase { display: inline-block; white-space: nowrap; }
+:focus-visible { outline: 3px solid var(--gold); outline-offset: 3px; }
+.banner { background: #050913; color: #fff; text-align: center; font-size: 14px; padding: 6px 12px; position: relative; z-index: 2; }
+main { overflow-x: clip; }
+
+/* ---------- 1画面目：夜の河川敷の絵の上に、題と開催の事実 ---------- */
+.hero { position: relative; min-height: 92vh; min-height: 92svh; overflow: hidden; display: flex; flex-direction: column; justify-content: space-between; }
+/* 絵は高さに合わせ、右（望遠鏡・人・月）を残して切る。PC では全体 */
+.scene { position: absolute; top: 0; right: 0; height: 100%; width: auto; min-width: 100%; aspect-ratio: 1.6 / 1; }
+.hero::after { content: ""; position: absolute; inset: 0; background: linear-gradient(180deg, rgba(5,10,31,.72) 0%, rgba(5,10,31,.35) 38%, rgba(5,10,31,0) 60%, rgba(5,10,31,.55) 100%); pointer-events: none; }
+.hero-in { position: relative; z-index: 1; padding: 36px 22px 0; max-width: 1180px; width: 100%; margin: 0 auto; }
+.org { font-size: 15px; font-weight: 700; letter-spacing: .14em; color: var(--muted); }
+h1 { font-family: var(--mincho); font-size: 50px; font-weight: 700; line-height: 1.15; letter-spacing: .06em; margin-top: 10px; text-shadow: 0 2px 18px rgba(0,0,0,.45); }
+.draft { display: inline-block; font-size: .4em; letter-spacing: 0; vertical-align: .32em; margin-left: .15em; color: var(--muted); }
+.date { margin-top: 22px; display: flex; flex-wrap: wrap; align-items: baseline; gap: 2px 14px; }
+.date strong { font-size: 34px; font-weight: 800; color: var(--gold); letter-spacing: .02em; }
+.date .time { font-size: 26px; font-weight: 800; }
+.place { margin-top: 6px; font-size: 18px; font-weight: 700; }
+.stop { display: inline-block; margin-top: 14px; padding: 4px 14px; border: 1.5px solid var(--gold); border-radius: 999px; font-size: 15px; font-weight: 700; color: var(--gold); }
+.cta { display: flex; width: fit-content; align-items: center; min-height: 52px; margin-top: 18px; padding: 0 24px; border-radius: 999px; background: var(--gold); color: #10142a; font-weight: 800; text-decoration: none; }
+/* 絵の注記は CTA のすぐ下（短い画面でも1画面目の中で切れない） */
+.art-note { margin-top: 14px; max-width: 30em; font-size: 14px; line-height: 1.6; color: var(--muted); text-shadow: 0 1px 8px rgba(0,0,0,.6); }
+
+/* 絵の部品の既定（夜の状態＝A と、B の最後・動きを減らす設定・JavaScript 無効） */
+.dusk { opacity: 0; }
+.sg { opacity: 1; }
+.wg { opacity: 0; }
+.wg.wgkeep { opacity: .9; }
+.refl { opacity: .35; }
+.milky { opacity: 1; }
+.cityglow { opacity: .18; }
+
+/* ---------- 見るもの ---------- */
+section:not(.hero) { padding: 64px 22px; max-width: 1080px; margin: 0 auto; }
+h2 { font-family: var(--mincho); font-size: 28px; font-weight: 700; letter-spacing: .06em; margin-bottom: 22px; }
+h2::after { content: ""; display: block; width: 36px; height: 2px; background: var(--gold); margin-top: 12px; }
+.things { list-style: none; display: grid; grid-template-columns: repeat(3, 1fr); gap: 14px; }
+.things li { text-align: center; }
+.things svg { width: 100%; max-width: 140px; height: auto; display: block; margin: 0 auto 10px; }
+.things p { font-weight: 800; font-size: 18px; white-space: nowrap; }
+.note { margin-top: 16px; font-size: 14px; color: var(--muted); text-align: right; }
+
+/* ---------- 持ち物 ---------- */
+.items { list-style: none; display: grid; gap: 12px; }
+.items li { padding: 16px 18px; background: var(--panel); border: 1px solid var(--line); border-radius: 14px; font-size: 20px; font-weight: 800; }
+.memo { display: block; margin-top: 4px; font-size: 16px; font-weight: 700; color: var(--memo); }
+.kids { margin-top: 16px; display: inline-block; padding: 8px 16px; border: 1.5px dashed var(--muted); border-radius: 12px; font-weight: 700; }
+
+/* ---------- 申し込み・参加のしかた（確認中） ---------- */
+.pending { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; }
+.pending > div { background: var(--panel); border: 1px solid var(--line); border-radius: 14px; padding: 14px; }
+.pending dt { font-size: 15px; color: var(--muted); font-weight: 700; }
+.pending dd { font-size: 20px; font-weight: 800; color: var(--gold); }
+
+/* ---------- 開催要項 ---------- */
+.outline dl { background: var(--panel); border: 1px solid var(--line); border-radius: 16px; padding: 6px 20px; }
+.outline dl > div { padding: 13px 0; border-bottom: 1px solid var(--line); }
+.outline dl > div:last-child { border-bottom: 0; }
+.outline dt { font-size: 15px; font-weight: 800; color: var(--gold); }
+footer { text-align: center; padding: 28px 20px 40px; font-size: 14px; color: var(--muted); border-top: 1px solid var(--line); }
+
+@media (min-width: 768px) {
+  .hero-in { padding: 72px 48px 0; }
+  h1 { font-size: 76px; } .date strong { font-size: 44px; } .date .time { font-size: 32px; } .place { font-size: 21px; }
+  .items { grid-template-columns: 1fr 1fr; }
+  .outline dl > div { display: grid; grid-template-columns: 8em 1fr; gap: 16px; }
+  h2 { font-size: 32px; }
+}
+@media (min-width: 1024px) { h1 { font-size: 96px; } .hero-in { padding-top: 96px; } }
