@@ -14,7 +14,7 @@
     const item = track.querySelector('.chooser-card');
     if (!item) return;
     const gap = parseFloat(getComputedStyle(track).columnGap) || 0;
-    track.scrollBy({left: direction * (item.getBoundingClientRect().width + gap), behavior: reduceMotion.matches ? 'instant' : 'smooth'});
+    track.scrollBy({left: direction * (item.getBoundingClientRect().width + gap), behavior: reduceMotion.matches ? 'auto' : 'smooth'});
   };
   prev.addEventListener('click', () => move(-1));
   next.addEventListener('click', () => move(1));
