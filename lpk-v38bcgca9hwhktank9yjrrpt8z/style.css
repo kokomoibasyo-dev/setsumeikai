@@ -144,3 +144,55 @@ a:focus-visible{outline:3px solid #3b4f86;outline-offset:4px}
 .refdoc__note{margin-top:auto;padding-top:12px;border-top:1px dashed var(--edge);font-size:14px;line-height:1.7;color:var(--sub)}
 .work--haebaru .status a{color:var(--ac);font-weight:700}
 @media (max-width:900px){.work--haebaru .ba__before{width:100%;max-width:420px}.refdoc{aspect-ratio:auto;transform:none}}
+
+
+/* ===== 作品をチラシで選ぶ横スワイプギャラリー ===== */
+.chooser{padding:clamp(48px,7vw,110px) 0 clamp(36px,5vw,72px);background:#eeeae3;color:var(--ink);overflow:hidden}
+.chooser__intro{display:flex;justify-content:space-between;align-items:flex-end;gap:24px;padding:0 6vw 30px}
+.chooser__eyebrow{font-family:var(--bod);font-size:14px;letter-spacing:.24em;color:#675c50}
+.chooser__intro h2{margin-top:12px;font-family:var(--min);font-size:clamp(30px,4vw,56px);font-weight:800;line-height:1.4}
+.chooser__guide{margin-top:12px;max-width:38em;color:#554e46;font-size:15px;line-height:1.7}
+.chooser__controls{display:none;gap:10px;flex:none}
+.has-gallery-controls .chooser__controls{display:flex}
+.chooser__arrow{width:48px;height:48px;border:1px solid #756b60;border-radius:50%;background:#fffdf9;color:#26221d;font-size:22px;cursor:pointer;transition:background .18s}
+.chooser__arrow:hover{background:#e1d9cd}
+.chooser__arrow:focus-visible{outline:3px solid #31547a;outline-offset:3px}
+.chooser__arrow:disabled{opacity:.33;cursor:default}
+.chooser__track{display:grid;grid-auto-flow:column;grid-auto-columns:clamp(260px,27vw,360px);gap:clamp(16px,2.2vw,32px);overflow-x:auto;overflow-y:hidden;overscroll-behavior-inline:contain;scroll-snap-type:x mandatory;scroll-padding-inline:6vw;padding:12px 6vw 26px;-webkit-overflow-scrolling:touch;scrollbar-color:#827568 #eeeae3;scrollbar-width:thin}
+.chooser__track:focus-visible{outline:3px solid #31547a;outline-offset:-3px}
+.chooser-card{min-width:0;padding:18px;background:#fffefa;border:1px solid #dfd8cd;border-radius:6px;scroll-snap-align:start;display:flex;flex-direction:column;box-shadow:0 8px 24px rgba(36,26,18,.07)}
+.chooser-card__head{display:flex;gap:14px;align-items:flex-start;min-height:78px}
+.chooser-card__number{font-family:var(--bod);font-size:30px;line-height:1;color:#8e7462;min-width:36px}
+.chooser-card__genre{font-size:12px;color:#655c52;line-height:1.5}
+.chooser-card__head h3{font-family:var(--min);font-size:clamp(18px,1.8vw,23px);line-height:1.45;font-weight:800;margin-top:2px}
+.chooser-card__image{display:grid;place-items:center;aspect-ratio:778/1100;background:#f0ede6;overflow:hidden;border:1px solid #e4ddd2}
+.chooser-card__image>img{width:100%;height:100%;object-fit:contain}
+.chooser-card__reference{height:100%;width:100%;background:#f5f8f5;color:#214442;display:flex;flex-direction:column;align-items:flex-start;justify-content:center;gap:18px;padding:10%;text-align:left}
+.chooser-card__reference-kicker{font-family:var(--bod);letter-spacing:.12em;font-size:13px}
+.chooser-card__reference strong{font-family:var(--min);font-size:clamp(19px,2vw,28px);line-height:1.6}
+.chooser-card__reference>span:not(.chooser-card__reference-kicker){font-size:14px;line-height:1.7}
+.chooser-card__reference small{margin-top:auto;font-size:12px;line-height:1.6}
+.chooser-card__link{display:block;margin-top:15px;padding:14px 16px;border-radius:100px;background:#1f272c;color:#fff;text-align:center;font-size:16px;font-weight:700;text-decoration:none}
+.chooser-card__link::after{content:" ↗"}
+.chooser-card__link:hover{background:#334a56}
+.chooser-card__link:focus-visible{outline:3px solid #31547a;outline-offset:3px}
+.chooser-card__label{margin-top:13px;font-size:12px;font-weight:700;color:#5e594f}
+.chooser-card__copy{margin-top:5px;color:#474139;font-size:14px;line-height:1.65}
+.chooser__legal{padding:13px 6vw 0;font-size:12px;color:#60584d;line-height:1.7}
+.work-archive{border-top:1px solid var(--line);background:var(--paper)}
+.work-archive>summary{cursor:pointer;list-style:none;padding:22px 6vw;font-size:16px;font-weight:700;display:flex;justify-content:space-between;gap:20px}
+.work-archive>summary::-webkit-details-marker{display:none}
+.work-archive>summary span{font-size:24px;line-height:1}
+.work-archive[open]>summary span{transform:rotate(45deg)}
+.work-archive>summary:focus-visible{outline:3px solid #31547a;outline-offset:-3px}
+@media(max-width:700px){
+ .chooser__intro{padding:0 5vw 22px;align-items:flex-end}
+ .chooser__intro h2{font-size:clamp(28px,7vw,42px)}
+ .chooser__guide{font-size:14px}
+ .chooser__track{grid-auto-columns:min(82vw,370px);padding-left:5vw;padding-right:5vw;scroll-padding-inline:5vw;gap:14px}
+ .chooser__arrow{width:42px;height:42px}
+ .chooser-card{padding:14px}
+ .chooser-card__head{min-height:76px}
+ .chooser__legal{padding-left:5vw;padding-right:5vw}
+}
+@media (prefers-reduced-motion:reduce){.chooser__arrow{transition:none}.chooser__track{scroll-behavior:auto}}
