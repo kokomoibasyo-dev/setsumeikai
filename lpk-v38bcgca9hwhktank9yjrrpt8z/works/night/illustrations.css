@@ -1,0 +1,16 @@
+/* イラストの差し込み先（ここだけ書き換えれば、まとめて差し替わる。全9点・ChatGPT 生成、assets/ に WebP で圧縮して配置）
+   v7：透過の層を重ねる方式をやめ、同じ構図の完成画を順に切り替える。 */
+:root{
+  --ill-hero:url("assets/night-hero.webp");                /* ヒーロー：縦2:3（枠は4:5。上を少し、下を多めに切る） */
+  /* 第1・2コマ：広場（同じ構図：夕暮れ → 点灯 → 人が集まる） */
+  --ill-plaza-dusk:url("assets/night-plaza-dusk.webp");
+  --ill-plaza-night:url("assets/night-plaza-night.webp");
+  --ill-plaza-crowd:url("assets/night-plaza-crowd.webp");
+  /* 第3コマ：出店の通り（同じ構図：少ない → にぎわう） */
+  --ill-stalls-quiet:url("assets/night-stalls-quiet.webp");
+  --ill-stalls-busy:url("assets/night-stalls-busy.webp");
+  /* 第4コマ：同じテーブルの3場面（乾杯 → 語り → 笑い） */
+  --ill-chat-a:url("assets/night-chat-a.webp");
+  --ill-chat-b:url("assets/night-chat-b.webp");
+  --ill-chat-c:url("assets/night-chat-c.webp");
+}
