@@ -13,6 +13,7 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Shippori+Mincho+B1:wght@600;800&family=Bodoni+Moda:ital,opsz,wght@0,6..96,400;0,6..96,500;1,6..96,400&family=Zen+Kaku+Gothic+New:wght@400;500;700&display=swap">
 <link rel="stylesheet" href="style.css">
 <script src="reveal.js" defer></script>
+<script src="gallery.js" defer></script>
 </head>
 <body>
 <p class="private">限定公開の試作｜掲載5作品のうち、4作品は架空の団体・催しの制作サンプル、1作品は実在する行政事業の公開情報をもとにした非公式のデザインサンプルです</p>
@@ -55,6 +56,55 @@
 </section>
 
 <main id="works">
+<section class="chooser" aria-labelledby="chooser-title">
+  <div class="chooser__intro">
+    <div><p class="chooser__eyebrow">SELECT WORK / 05</p>
+      <h2 id="chooser-title">チラシを流して、<br>気になるLPを体験。</h2>
+      <p class="chooser__guide">左右にスワイプして作品を選んでください。PCでは矢印ボタンや横スクロールでも選べます。</p>
+    </div>
+    <div class="chooser__controls" aria-label="作品の切り替え">
+      <button type="button" class="chooser__arrow" data-gallery-prev aria-label="前の作品へ">←</button>
+      <button type="button" class="chooser__arrow" data-gallery-next aria-label="次の作品へ">→</button>
+    </div>
+  </div>
+  <div class="chooser__track" id="chooser-track" role="region" aria-roledescription="カルーセル" aria-label="チラシから作品を選ぶ" tabindex="0">
+<article class="chooser-card" id="chooser-01" aria-labelledby="chooser-title-01">
+  <header class="chooser-card__head"><span class="chooser-card__number">01</span><div><p class="chooser-card__genre">手芸サークルの会員募集</p><h3 id="chooser-title-01">一本の糸</h3></div></header>
+  <div class="chooser-card__image"><img src="assets/ito-flyer.jpg" alt="ひだまり手芸サークルの会員募集チラシ。黄色い背景に原色の文字や枠が配置されている" width="778" height="1100" loading="lazy"></div>
+  <a class="chooser-card__link" href="works/ito/index.html" target="_blank" rel="noopener">このLPをみる<span class="vh">（一本の糸、新しいタブで開きます）</span></a>
+  <p class="chooser-card__label">体験型LP・架空デモ</p><p class="chooser-card__copy">スクロールに合わせて一本の糸が伸びていく</p>
+</article>
+<article class="chooser-card" id="chooser-02" aria-labelledby="chooser-title-02">
+  <header class="chooser-card__head"><span class="chooser-card__number">02</span><div><p class="chooser-card__genre">地域の防災講習会</p><h3 id="chooser-title-02">地域防災講習会</h3></div></header>
+  <div class="chooser-card__image"><img src="assets/bousai-flyer.jpg" alt="地域防災講習会の元チラシ。手紙形式の文章と、日時や会場の表がある" width="778" height="1100" loading="lazy"></div>
+  <a class="chooser-card__link" href="works/bousai/index.html" target="_blank" rel="noopener">このLPをみる<span class="vh">（地域防災講習会、新しいタブで開きます）</span></a>
+  <p class="chooser-card__label">体験型LP・架空デモ</p><p class="chooser-card__copy">いつもの暮らしの場面から防災を考える</p>
+</article>
+<article class="chooser-card" id="chooser-03" aria-labelledby="chooser-title-03">
+  <header class="chooser-card__head"><span class="chooser-card__number">03</span><div><p class="chooser-card__genre">夏の怪談会</p><h3 id="chooser-title-03">百物語の夜</h3></div></header>
+  <div class="chooser-card__image"><img src="assets/horror-flyer.jpg" alt="百物語の夜の元チラシ。黒地に縦書きのタイトルとろうそくの絵がある" width="778" height="1100" loading="lazy"></div>
+  <a class="chooser-card__link" href="works/horror/index.html" target="_blank" rel="noopener">このLPをみる<span class="vh">（百物語の夜、新しいタブで開きます）</span></a>
+  <p class="chooser-card__label">演出デモ・制作途中</p><p class="chooser-card__copy">和本のページがめくれる演出を体験</p>
+</article>
+<article class="chooser-card" id="chooser-04" aria-labelledby="chooser-title-04">
+  <header class="chooser-card__head"><span class="chooser-card__number">04</span><div><p class="chooser-card__genre">行政事業の情報案内</p><h3 id="chooser-title-04">シニア運動習慣サポート</h3></div></header>
+  <div class="chooser-card__image"><div class="chooser-card__reference" role="img" aria-label="資料の内容をまとめた代替表示。元チラシの画像は権利未確認のため掲載していません"><span class="chooser-card__reference-kicker">REFERENCE / 04</span><strong>町のチラシと<br>公式情報をもとに</strong><span>対象者・補助条件・申込方法を整理</span><small>※元のチラシ画像は掲載していません</small></div></div>
+  <a class="chooser-card__link" href="works/haebaru/index.html" target="_blank" rel="noopener">このLPをみる<span class="vh">（シニア運動習慣サポート、新しいタブで開きます）</span></a>
+  <p class="chooser-card__label">非公式・自主制作サンプル</p><p class="chooser-card__copy">必要な情報を整理して読みやすく。町の公式サイトではありません</p>
+</article>
+<article class="chooser-card" id="chooser-05" aria-labelledby="chooser-title-05">
+  <header class="chooser-card__head"><span class="chooser-card__number">05</span><div><p class="chooser-card__genre">星空観察会の案内</p><h3 id="chooser-title-05">星空観察会</h3></div></header>
+  <div class="chooser-card__image"><img src="assets/star-flyer.jpg" alt="星空観察会（案）の手書き風ラフチラシ。開催情報と確認中の事項が書かれている" width="778" height="1100" loading="lazy"></div>
+  <a class="chooser-card__link" href="works/star/index.html" target="_blank" rel="noopener">このLPをみる<span class="vh">（星空観察会、新しいタブで開きます）</span></a>
+  <p class="chooser-card__label">体験型LP・架空デモ</p><p class="chooser-card__copy">流れ星と望遠鏡をのぞく疑似体験</p>
+</article>
+  </div>
+  <p class="chooser__legal">04は実在する行政事業の公開情報を参考にした非公式サンプルです。チラシの画像は権利未確認のため掲載していません。</p>
+</section>
+<details class="work-archive">
+  <summary>制作過程やデザインの工夫を詳しく見る <span aria-hidden="true">＋</span></summary>
+  <div class="work-archive__content">
+
 
 <!-- 01 一本の糸 -->
 <section class="work work--ito" aria-labelledby="ito-h">
@@ -213,6 +263,8 @@
   </div>
 </section>
 
+  </div>
+</details>
 </main>
 
 <!-- サービスの構想 -->
